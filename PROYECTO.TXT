@@ -1,0 +1,25 @@
+Hola Mi nombre es Rubén Montes, mi proyecto se basa en una app para traer paquetes a un destinatario x. La idea es que cualquier persona de viaje pueda traer un paquete para otra.
+Se uso un base de datos en la que se guardan los datos de los usuarios y contraseñas donde se puede loguear y registrar, dejando los datos en la db.
+Para las contraseñas usé bcrypt para encriptar las contraseñas,el nabvar y el footer son siempre los mismos ya q usé hbs para todo el proyecto.
+En la base de datos hay 3 tablas PEDIDOS, USUARIOS Y MAILS.
+En PEDIDOS los clientes hacen sus pedidos de encomiendas y los viajantes los toman o no.
+En USUARIOS se guardan los datos de los usuarios y contraseñas.
+En MAILS se guardan los correos que se ingresan en el footer para poder mandar promociones, una especie de newsletter.
+Esta integramente echo en bootstrap con la ayuda de una plantilla del sitio de bootstrap y en los formularios se uso una validacion muy sensilla de la misma libreria, Tiene unas lindas alertas de sweetalert2 y el crud esta completo en la parte de registro de usuarios
+Tiene en el menu superior un menu que es para ver los datos, pero q en la idea
+Soriginal no tendria q estar.
+Se adapta bastante bien a las diferentes pantallas.
+Está integramente echa con hbs, que es un motor de plantillas que vimos en clases.
+Con heroku no me fue muy bien con la db, por lo que recurri a una base de datos de AWS que funciona perfecta, muy rápida y estable hasta ahora.
+Fue un proyecto que me costó mucho ya que es mi primer encuentro de cerca con el desarrollo de aplicaciones web.
+Me gusto mucho nodejs y el framework express,el framework hbs que me simplifico la vida, pero la verdad es que me costo mucho.
+Espero que te guste el proyecto.
+
+Un abrazo y nos vemos en la segunda cursada.
+
+
+
+
+
+
+

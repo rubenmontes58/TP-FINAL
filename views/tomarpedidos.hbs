@@ -1,0 +1,140 @@
+
+
+
+
+
+
+<table id="example" class="table table-striped" style="width:100%">
+        <thead>
+          
+            <tr>
+                <th>ID</th>
+                <th>Nombre y Apellido</th>
+                <th>Dirección para retirar Paquete</th>
+                <th>Provincia</th>
+                <th>Ciudad</th>
+                <th>Franja horaria para retirar el paquete</th>
+                <th>Fecha para retirar el paquete</th>
+                <th>Caracteristicas</th>
+                <th>Dni Autorizado a Rerirar el paquete</th>
+                <th>Fecha de Entrega</th>
+                <th>Hora de Entrega</th>
+                <th>Direccion de Entrega</th>
+                <th>Ciudad de Entrega</th>
+                <th>Provincia de Entrega</th>
+                <th>Precio</th>
+                <th>Accion</th>
+                <th>
+                  <a href="/retiros" class="btn btn-danger" id="alert1" onclick="/retiros">Nuevo Registro</a>
+                </th>
+                
+
+            </tr>
+        </thead>
+        <tbody>
+           {{#each results}}
+           
+            <tr>
+                <td>{{id}}</td>
+                <td>{{nombreyapellido}}</td>
+                <td>{{dirretiro}}</td>
+                <td>{{provincia}}</td>
+                <td>{{ciudad}}</td>
+                <td>{{hora}}</td>
+                <td>{{fecha}}</td>
+                <td>{{caracteristicas}}</td>
+                <td>{{dniretiro}}</td>
+                <td>{{fechaentrega}}</td>
+                <td>{{horaentrega}}</td>
+                <td>{{direntrega}}</td>
+                <td>{{ciudadentrega}}</td>
+                <td>{{provinciaentrega}}</td>
+                <td>${{precio}}</td>
+                <td>
+                    
+
+
+                  
+
+
+               
+                </td>
+                <td>
+                  <a href="javascript:void(0);" class="btn btn-danger" id="alert1" onclick="eliminar({{id}})">Eliminar</a>
+
+
+                  
+                </td>
+                <td>
+                  <a href="javascript:void(0);" class="btn btn-danger" id="alert1" onclick="editar({{id}})">Editar</a>
+                    
+                  <!-- Button trigger modal -->
+
+
+                </td>
+                
+                
+            </tr>
+            
+            
+            {{/each}}
+            
+        </tbody>
+
+            </table>
+            
+           
+ <script>$(document).ready(function () {
+    $('#example').DataTable();
+});</script>
+
+<script>
+function editar(id){
+  window.location.href = "edit/"+id;
+}
+
+</script>
+  
+
+
+          
+<script>
+ 
+  function eliminar(id){
+    var r = Swal.fire({
+  title: 'Estas seguro de eliminar el registro?',
+  text: "No podrás volver atrás!",
+  icon: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Si, Eliminar!'
+}).then((result) => {
+  if (result.isConfirmed) {
+    window.location.href = "{{url}}/delete/"+id;
+    Swal.fire(
+      'Borrado!',
+      'Tu registro ha sido borrado con éxito',
+      'success'
+    )
+  }
+})
+if (r == true) {
+      window.location.href = "{{url}}/delete/"+id;
+    } else {
+      return false;
+    }
+  }
+</script>
+
+
+
+
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+       

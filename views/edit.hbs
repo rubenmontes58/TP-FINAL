@@ -1,0 +1,72 @@
+
+      
+      
+      
+      
+      
+
+
+
+
+
+<table id="example" class="table table-striped" style="width:100%">
+        <thead>
+          
+            <tr>
+                <th>ID</th>
+                <th>Nombre y Apellido</th>
+                <th>Dirección para retirar Paquete</th>
+                <th>Provincia</th>
+                <th>Ciudad</th>
+                <th>Franja horaria para retirar el paquete</th>
+                <th>Fecha para retirar el paquete</th>
+                <th>Caracteristicas</th>
+                <th>Dni Autorizado a Rerirar el paquete</th>
+                <th>Fecha de Entrega</th>
+                <th>Hora de Entrega</th>
+                <th>Direccion de Entrega</th>
+                <th>Ciudad de Entrega</th>
+                <th>Provincia de Entrega</th>
+                <th>Precio</th>
+                
+                
+
+            </tr>
+        </thead>
+        <tbody>
+           {{#each results}}
+            <tr>
+                <td>{{id}}</td>
+                <td>{{nombreyapellido}}</td>
+                <td>{{dirretiro}}</td>
+                <td>{{provincia}}</td>
+                <td>{{ciudad}}</td>
+                <td>{{hora}}</td>
+                <td>{{fecha}}</td>
+                <td>{{caracteristicas}}</td>
+                <td>{{dniretiro}}</td>
+                <td>{{fechaentrega}}</td>
+                <td>{{horaentrega}}</td>
+                <td>{{direntrega}}</td>
+                <td>{{ciudadentrega}}</td>
+                <td>{{provinciaentrega}}</td>
+                <td>{{precio}}</td>
+           
+            </tr>
+            {{/each}} 
+        </tbody>
+        <div class="text-center">
+       
+        </div>
+       
+
+    </table>
+
+
+
+<script>
+function editpedidos(id){
+  window.location.href = "editpedidos/"+id;
+}
+
+</script>
