@@ -5,10 +5,7 @@ const Port = process.env.PORT || 8080;
 const hbs = require('hbs');
 const mysql = require('mysql2');
 const path = require('path');
-const nodemailer = require('nodemailer');
 const bcrypt = require('bcryptjs');
-const { Console } = require('console');
-const { get } = require('http');
 const conexion = mysql.createConnection({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
@@ -21,7 +18,6 @@ const conectar = (conexion.connect((error) => {
         console.log('Base de Datos Conectada!!');
     })
 );
-
 
 app.use(express.static('public'));
 app.use(express.json());
@@ -59,13 +55,13 @@ app.post('/retiros', (req, res) =>{
     );
 }
 );
+
         
 
 app.get('/register', (req, res) =>{
     res.render('register', {titulo: 'USUARIO NO REGISTRADO'})
 }
 );
-
 
 
 app.post('/register', (req, res) =>{
@@ -87,8 +83,6 @@ app.get('/login', (req, res) =>{
 res.render('login', {titulo: 'USUARIO NO REGISTRADO'})
 }
 );
-
-
 
 app.post('/login', (req, res) =>{
     const { usuario, contrasena } = req.body;
@@ -114,8 +108,6 @@ app.post('/login', (req, res) =>{
     );
 }
 );
-
-
 
 app.get('/footer', (req, res) =>{
     res.render('index', {titulo: 'Mails'})
@@ -178,9 +170,6 @@ app.get('/veredit/:id', (req, res) =>{
 }
 );
 
-
-
-
 app.post('/veredit/:id', (req, res) =>{
     const { id } = req.params;
     const { usuario, contrasena } = req.body;
@@ -195,7 +184,6 @@ app.post('/veredit/:id', (req, res) =>{
     );
 }
 );
-
 
 
 app.post('/edit/', (req, res) =>{
@@ -213,10 +201,6 @@ app.post('/edit/', (req, res) =>{
 );
 
 
-
-
-
-
 app.get('/delete/:id', (req, res) =>{
     const id = req.params.id;
     const sql = `DELETE FROM USUARIOS WHERE id = ?`;
@@ -228,8 +212,6 @@ app.get('/delete/:id', (req, res) =>{
     );
 }
 );
-
-
 
 
 app.get('/tomarpedidos', (req, res) =>{
@@ -244,15 +226,17 @@ app.get('/tomarpedidos', (req, res) =>{
 }
 );
 
-
-
-
-
-
-
-
-
-
+app.get('/tomarpedidos/:id', (req, res) =>{
+    const id = req.params.id;
+    const sql = `DELETE FROM PEDIDOS WHERE id = ?`;
+    conexion.query(sql, id, (error, results, fields) => {
+        if (error) throw error;
+        console.log(id);
+        res.redirect('/tomarpedidos');
+    }
+    );
+}
+);
 
 app.listen(Port, ()=>{
     console.log(`Servidor corriendo en el Puerto ${Port}`);
@@ -260,151 +244,4 @@ app.listen(Port, ()=>{
 app.on('error', (error) =>{
     console.log(`Tenemos un error ${error}`);
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

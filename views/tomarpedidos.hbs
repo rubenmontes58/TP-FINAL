@@ -111,7 +111,7 @@ function editar(id){
   confirmButtonText: 'Si, Eliminar!'
 }).then((result) => {
   if (result.isConfirmed) {
-    window.location.href = "{{url}}/delete/"+id;
+    window.location.href = "{{url}}/tomarpedidos/"+id;
     Swal.fire(
       'Borrado!',
       'Tu registro ha sido borrado con éxito',
@@ -120,7 +120,7 @@ function editar(id){
   }
 })
 if (r == true) {
-      window.location.href = "{{url}}/delete/"+id;
+      window.location.href = "{{url}}/tomarpedidos/"+id;
     } else {
       return false;
     }
